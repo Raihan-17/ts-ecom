@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useFilter } from './FilterContext.tsx';
 
 const Sidebar = () => {
+    const {
+        searchQuery,
+        setSearchQuery,
+        selectedCategory,
+        setSelectedCategory,
+        minPrice,
+        setMinPrice,
+        maxPrice,
+        setMaxPrice,
+        keyword,
+        setKeyword
+    } = useFilter();
 
 interface product {
     category: string;
@@ -36,7 +49,31 @@ useEffect(()=>{
     fetchCategories();
 }, []);
 
-    
+const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setMinPrice(value ? parseFloat(value) : undefined);
+};
+
+const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setMaxPrice(value ? parseFloat(value) : undefined);
+};
+
+const handleRadioChangeCategories = (category: string) => {
+    setSelectedCategory(category);
+};
+
+const handleKeywordClick = (keyword: string) => {
+    setKeyword(keyword);
+}
+
+const handleResetFilters = () => {
+   setSearchQuery('');
+   setSelectedCategory('');
+   setMinPrice(undefined);
+   setMaxPrice(undefined);
+   setKeyword('');
+}
 
     return (
         <div className='w-64 bg-gray-200 p-5 h-screen'>
@@ -53,11 +90,15 @@ useEffect(()=>{
         type="text"
         placeholder="min price"
         className="border-2 border-gray-400 p-2 rounded w-full sm:mb-0"
+        onChange={handleMinPriceChange}
+        value={minPrice ?? ''}
     />
     <input
         type="text"
         placeholder="max price"
         className="border-2 border-gray-400 p-2 rounded w-full sm:mb-0"
+        onChange={handleMaxPriceChange}
+        value={maxPrice ?? ''}
     />
 </div>
         {/* category section */}
@@ -68,7 +109,10 @@ useEffect(()=>{
             {categories.map((category, index)=>(
               <label key={index} className="block mb-1">
                 <input type="radio" name="category" 
-                value={category} className="mr-2" />
+                value={category} className="mr-2" 
+                onChange={() => handleRadioChangeCategories(category)}
+                checked={selectedCategory === category}
+                />
                 {category.toUpperCase()}
               </label>
             ))}
@@ -79,7 +123,9 @@ useEffect(()=>{
             <h3 className='text-lg font-semibold mb-2'>Keywords</h3>
             <div className='flex flex-wrap gap-2'>
                 {keywords.map((keyword, index) => (
-                    <span key={index} className='border-2 border-gray-100 p-1 rounded'>
+                    <span key={index} className='border-2 border-gray-100 p-1 rounded'
+                    onClick={() => handleKeywordClick(keyword)}
+                    >
                         {keyword.toUpperCase()}
                     </span>
                 ))}
@@ -87,7 +133,9 @@ useEffect(()=>{
            </section>
 
         </div>
-        <button className='bg-black text-white p-2 rounded'>Reset Filters</button>
+        <button 
+        onClick={handleResetFilters}
+        className='bg-black text-white p-2 rounded'>Reset Filters</button>
 
         </section>
 
