@@ -63,14 +63,31 @@ useEffect(()=>{
         {/* category section */}
         <div className='mb-5'>
             <h3 className='text-lg font-semibold mb-2'>Categories</h3>
-            {/* <ul>
-                {categories.map((category, index) => (
-                    <li key={index} className='mb-1 cursor-pointer hover:text-blue-500'>
-                        {category}
-                    </li>
+
+           <section>
+            {categories.map((category, index)=>(
+              <label key={index} className="block mb-1">
+                <input type="radio" name="category" 
+                value={category} className="mr-2" />
+                {category.toUpperCase()}
+              </label>
+            ))}
+           </section>
+
+           {/* keyword section */}
+           <section>
+            <h3 className='text-lg font-semibold mb-2'>Keywords</h3>
+            <div className='flex flex-wrap gap-2'>
+                {keywords.map((keyword, index) => (
+                    <span key={index} className='border-2 border-gray-100 p-1 rounded'>
+                        {keyword.toUpperCase()}
+                    </span>
                 ))}
-            </ul> */}
+            </div>
+           </section>
+
         </div>
+        <button className='bg-black text-white p-2 rounded'>Reset Filters</button>
 
         </section>
 
