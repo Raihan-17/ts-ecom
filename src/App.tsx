@@ -1,9 +1,10 @@
 // import { useState } from 'react'
-import { BrowserRouter as Router } from 'react-router'
+import { Route, BrowserRouter as Router, Routes } from 'react-router'
 
 import './App.css'
 import Sidebar  from './components/Sidebar.tsx'
 import { FilterProvider } from './components/FilterContext.tsx'
+import MainContent from './components/MainContent.tsx'
 
 function App() {
 
@@ -13,7 +14,17 @@ function App() {
     <div className="flex h-screen">
       <FilterProvider>
         <Sidebar />
-      </FilterProvider>
+{/* maincontent section */}
+<div className="rounded w-full flex justify-between flex-wrap">
+  <Routes>
+    <Route path="/" element={
+      
+        <MainContent />
+    
+      } />
+  </Routes>
+</div>
+</FilterProvider>
     </div>
   </Router>
   )
