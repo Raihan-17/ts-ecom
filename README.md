@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+# 🛍️ Pawn Shop E-Commerce 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce UI built using **React**, **TypeScript**, and **TailwindCSS**, fetching live product data from a public API (**dummyjson.com**). The app supports filtering, category browsing, product detail view, and interactive right-panel content like blogs and top sellers.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
+(https://ts-ecom.onrender.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎯 Core Shopping Features
 
-## Expanding the ESLint configuration
+- 🔍 **Search products** by title keyword
+- 🏷️ **Filter** by category, price, and keyword tags
+- ⭐ **Sort** products by popularity, price (cheap/expensive)
+- 🛒 **Paginated product feed** for easy browsing
+- 📄 **Product detail page** with description, image, rating, and price
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+###  Extra Sections
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🏆 **Top Sellers**
+  - Random people from `randomuser.me` with follow/unfollow functionality
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- 📰 **Popular Blogs**
+  - Curated list of blog articles (static for now, can be fetched dynamically)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧰 Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  Technology  
+  
+| React + TS    | 
+| Tailwind CSS  | 
+| Axios         | 
+| React Router  | 
+| Lucide Icons  | 
+
+---
+
+
