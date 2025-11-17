@@ -2,7 +2,7 @@ import React from 'react';
 
 const PopularBlogs = () => {
     return (
-        <div>blogs</div>
+        <div className="text-white font-bold mt-4">SERVING FOR YEARS</div>
     );
 };
 
